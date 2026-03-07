@@ -10,7 +10,16 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body class="bg-white">
-    <div id="app"></div>
+    <nav class="border-b border-gray-200 px-8 py-4 flex justify-between items-center bg-white sticky top-0 z-30">
+    <div class="flex items-center gap-3">
+        <h1 class="text-xl font-bold text-gray-800">GitHub Issues Tracker</h1>
+    </div>
+    <div class="flex gap-3">
+        <input type="text" id="searchInput" placeholder="Search..." class="border rounded-md px-4 py-2">
+        <button class="bg-purple-600 text-white px-5 py-2 rounded-md font-bold">+ New Issue</button>
+    </div>
+</nav>
+<main class="max-w-[1400px] mx-auto p-8" id="mainContent"></main>
     <script src="script.js"></script>
 </body>
 </html>
