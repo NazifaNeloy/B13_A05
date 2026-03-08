@@ -131,11 +131,9 @@ function renderIssues(issues) {
 
         card.innerHTML = `
             <div class="flex justify-between items-center mb-3">
-                <!-- Status Icon -->
-                <div class="w-8 h-8 rounded-full ${iconBg} flex items-center justify-center text-sm">
-                    <i class="${iconClass}"></i>
-                </div>
-                <!-- Priority Pill -->
+         
+                <img src="${issue.status === 'Open' ? './assets/open.png' : './assets/closed.png'}" alt="${issue.status}" class="w-6 h-6 object-contain">
+
                 <span class="${prioClass}">${prio}</span>
             </div>
             
@@ -184,25 +182,20 @@ async function openModal(id) {
         content.innerHTML = `
             <div class="p-8 relative">
                 <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl">&times;</button>
-
-                <!-- 1. Title -->
                 <h2 class="text-2xl font-bold text-gray-900 mb-4 pr-8 leading-tight">${issue.title}</h2>
                 
-                <!-- 2. Status & Meta -->
+            
                 <div class="flex items-center gap-2 text-sm text-gray-500 mb-5">
                     ${badge}
                     <span>• Opened by <span class="font-bold text-gray-800">${issue.author || issue.createdBy}</span> • ${new Date(issue.createdAt).toLocaleDateString()}</span>
                 </div>
 
-                <!-- 3. Tags -->
                 <div class="flex gap-2 mb-6 flex-wrap">${labelsHtml}</div>
-                
-                <!-- 4. Description -->
+           
                 <p class="text-gray-700 text-sm leading-7 mb-8">
                     ${issue.description}
                 </p>
                 
-                <!-- 5. Gray Box (Assignee & Priority) -->
                 <div class="bg-gray-50 rounded-lg p-5 border border-gray-100 flex justify-between items-center mb-8">
                     <div>
                         <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-1">ASSIGNEE</p>
@@ -213,7 +206,6 @@ async function openModal(id) {
                     </div>
                     <div>
                         <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-1">PRIORITY</p>
-                        <!-- FIX: Just bold text -->
                         <span class="text-sm font-bold text-gray-900 uppercase">${issue.priority || 'Low'}</span>
                     </div>
                 </div>
