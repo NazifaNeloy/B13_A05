@@ -132,7 +132,9 @@ function renderIssues(issues) {
         card.innerHTML = `
             <div class="flex justify-between items-center mb-3">
          
-                <img src="${issue.status === 'Open' ? './assets/open.png' : './assets/closed.png'}" alt="${issue.status}" class="w-6 h-6 object-contain">
+                 <div class="w-8 h-8 rounded-full ${iconBg} flex items-center justify-center text-sm">
+                    <i class="${iconClass}"></i>
+                </div>
 
                 <span class="${prioClass}">${prio}</span>
             </div>
@@ -199,7 +201,6 @@ async function openModal(id) {
                 <div class="bg-gray-50 rounded-lg p-5 border border-gray-100 flex justify-between items-center mb-8">
                     <div>
                         <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-1">ASSIGNEE</p>
-                        <!-- FIX: Just the name, no highlighter/circle -->
                         <p class="text-sm font-bold text-gray-900">
                             ${issue.assignee || issue.author || 'Unassigned'}
                         </p>
